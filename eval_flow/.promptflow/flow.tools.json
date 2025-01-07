@@ -1,0 +1,90 @@
+{
+  "package": {},
+  "code": {
+    "line_process.py": {
+      "type": "python",
+      "inputs": {
+        "score": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "This tool processes the prediction of a single line and returns the processed result.\n\n:param score: a JSON string containing additional scoring information.",
+      "source": "line_process.py",
+      "function": "line_process"
+    },
+    "aggregate.py": {
+      "type": "python",
+      "inputs": {
+        "scores": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "description": "This tool aggregates the processed result of all lines and calculates a percentage score.\n\n:param scores: List of the output of line_process node.",
+      "source": "aggregate.py",
+      "function": "aggregate"
+    },
+    "generate_title.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "content": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "generate_title.jinja2"
+    },
+    "compare_title.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "content": {
+          "type": [
+            "string"
+          ]
+        },
+        "generated_headline": {
+          "type": [
+            "string"
+          ]
+        },
+        "good_headline": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "compare_title.jinja2"
+    },
+    "llm_node_3lo9.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "llm_node_3lo9.jinja2"
+    },
+    "generate_title_variant_1.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "content": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "generate_title_variant_1.jinja2"
+    }
+  }
+}
