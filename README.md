@@ -8,7 +8,7 @@
 - Install the Prompt Flow extension in VS Code
 - Open `flow.dag.yaml' and check that you see the links above the YAML file:
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 Click Visual Editor to see the flow as depicted below.
 
@@ -18,7 +18,7 @@ Click Visual Editor to see the flow as depicted below.
 
 With evaluation flows, you can evaluate the performance of LLMs. An evaluation flow is simply a flow that contains an evaluation component that uses Prompt Flows's **aggregate** capability. The image below contains such a flow:
 
-<img src="flow.png" alt="alt text" width="400"/>
+<img src="images/flow.png" alt="alt text" width="400"/>
 
 The flow above has an **aggregate** node that takes in the results of line_process. If line_process returns a string, and you do a batch run of this flow with 10 inputs, the aggregate node can accept a list of strings. The Python code in the aggregate node will then be run on that list of strings. You can do whatever you want there. Here is the code from the aggregate node in the example above:
 
@@ -75,7 +75,7 @@ If you do a batch run of this evaluation flow, you need to provide data to the b
 {"title": "Tech Giant Unveils Groundbreaking AI Assistant", "date": "2025-01-06", "content": "A leading tech company has announced the launch of its latest AI assistant, promising to revolutionize daily life and work efficiency. Equipped with advanced natural language processing and real-time adaptability, the assistant is designed to assist with tasks ranging from scheduling to creative writing. Analysts believe this innovation could redefine how businesses and individuals interact with technology, sparking debates over privacy and ethical AI usage."}
 {"title": "Global Leaders Convene for Climate Action Summit", "date": "2025-01-06", "content": "World leaders are gathering in Geneva for the Climate Action Summit, addressing critical issues such as carbon emissions, renewable energy, and global temperature rise. The conference aims to reinforce commitments to the Paris Agreement while introducing stricter targets. Activists worldwide have staged demonstrations, urging immediate action as natural disasters intensify."}
 {"title": "Breakthrough in Cancer Research Offers New Hope", "date": "2025-01-06", "content": "Researchers have developed a groundbreaking treatment for a rare type of cancer, showing a 90% success rate in clinical trials. The innovative therapy, based on gene editing, represents a major advancement in personalized medicine. Experts predict it could pave the way for treating other conditions, potentially transforming healthcare."}
-{"title": "Major Sports Event Kicks Off Amid High Expectations", "date": "2025-01-06", "content": "The world’s attention turns to Paris as the international sports championship begins. Over 10,000 athletes from 150 nations will compete in various disciplines over two weeks. Fans are excited about anticipated rivalries and record-breaking performances, while officials have assured top-notch facilities and security measures for participants and spectators."}
+{"title": "Major Sports Event Kicks Off Amid High Expectations", "date": "2025-01-06", "content": "The world's attention turns to Paris as the international sports championship begins. Over 10,000 athletes from 150 nations will compete in various disciplines over two weeks. Fans are excited about anticipated rivalries and record-breaking performances, while officials have assured top-notch facilities and security measures for participants and spectators."}
 {"title": "Breakthrough Renewable Energy Project Launches", "date": "2025-01-06", "content": "A groundbreaking solar energy project has been inaugurated in the Sahara Desert. Spanning thousands of hectares, the project aims to supply clean energy to millions across Africa and Europe. Experts hail it as a step toward reducing dependence on fossil fuels, though some raise concerns about environmental impacts on local ecosystems."}
 ```
 
@@ -89,7 +89,7 @@ When you submit the above jsonl to the batch run, the following will happen:
 
 In VS Code, you can use the batch run history to retrieve the metric by right clicking the run and selecting view metrics.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 Because there are variants, the batch run will ask you to select a variant. You can select either variant_0 or variant_1.
 
@@ -118,11 +118,11 @@ Notes:
 
 For example, if the run name is `good_titles_1`, you will see it in your AI Foundry project under Prompt Flow runs:
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 You can then click on the run and click the details icon in the upper right corner. One of the details will be the metrics:
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 Above, the calculated grade was 70%.
 
@@ -130,8 +130,8 @@ Above, the calculated grade was 70%.
 
 If you want to see all the details of the batch run, click Trace:
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 This allows you to see all the details per item in your data file. For example, you can see the generated title and score and the prompts that were used to obtain them. Because line_process emits both the score and an explanation of the score, you can see both in the trace:
 
-![alt text](image-4.png)
+![alt text](images/image-4.png)
