@@ -1,5 +1,19 @@
 # Evaluation with Prompt Flow
 
+## Quick start
+
+- Clone the repo
+- Create and activate a Python virtual environment
+- Install the dependencies with `pip install -r eval_flow/requirements.txt`
+- Install the Prompt Flow extension in VS Code
+- Open `flow.dag.yaml' and check that you see the links above the YAML file:
+
+![alt text](image-5.png)
+
+Click Visual Editor to see the flow as depicted below.
+
+**Note:** If you do not see the links, check that all dependencies are deployed. Check the Prompt Flow docs here: https://microsoft.github.io/promptflow/how-to-guides/installation/index.html
+
 ## Overview
 
 With evaluation flows, you can evaluate the performance of LLMs. An evaluation flow is simply a flow that contains an evaluation component that uses Prompt Flows's **aggregate** capability. The image below contains such a flow:
