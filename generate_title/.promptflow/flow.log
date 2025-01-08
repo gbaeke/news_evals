@@ -1,0 +1,5 @@
+2025-01-08 16:22:20 +0100   55016 execution.flow     INFO     Start executing nodes in thread pool mode.
+2025-01-08 16:22:20 +0100   55016 execution.flow     INFO     Start to run 1 nodes with concurrency level 16.
+2025-01-08 16:22:20 +0100   55016 execution.flow     INFO     Executing node generate_title. node run id: 1e3d52e8-08f4-4fe5-87ba-392596966feb_generate_title_0
+2025-01-08 16:22:21 +0100   55016 execution.flow     WARNING  Failed to calculate metrics due to exception: unsupported operand type(s) for +: 'int' and 'NoneType'.
+2025-01-08 16:22:21 +0100   55016 execution.flow     INFO     Node generate_title completes.

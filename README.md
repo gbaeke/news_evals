@@ -135,3 +135,56 @@ If you want to see all the details of the batch run, click Trace:
 This allows you to see all the details per item in your data file. For example, you can see the generated title and score and the prompts that were used to obtain them. Because line_process emits both the score and an explanation of the score, you can see both in the trace:
 
 ![alt text](images/image-4.png)
+
+## Creating a flow in the cloud
+
+If you have developed the flow locally and want to duplicate that flow in the cloud, run the following command:
+
+```bash
+pfazure flow create --flow flow_folder --set display_name=flow_display_name description="Flow Description" -g resource_group -w ai_foundry_project
+```
+
+Ensure the following:
+
+- connections with the same name (e.g. connection to Azure OpenAI)
+- upload data files in a separate step
+
+After creating the flow, it should show in the UI:
+
+![alt text](images/cloud_flow.png)
+
+**Note:** you can also upload your flow if you create the flow in the cloud and select the upload option in the UI.
+
+## Generate title flow
+
+The flow in folder `generate_title` is a simple flow that generates a title based on the content. This flow can be used in an automated evaluation. We can ask Prompt Flow to evaluate the `generate_title` based on the set of articles in `articles.jsonl`. The flow contains the following nodes:
+
+- input: content of the article
+- generate_title: generates a title based on the content
+- output: the generated title
+
+The flow can be uploaded to a project as follows:
+
+```bash
+pfazure flow create --flow generate_title --set display_name=generate_title description="Generate news headlines" -g resource_group -w ai_foundry_project
+```
+
+In Prompt Flow in AI Foundry, navigate to the flow and start a Compute session. Next, select `Automated evaluation` as shown below:
+
+![alt text](images/auto_eval.png)
+
+The automated evaluations only support **query and response**. In the wizard that follows:
+
+- Basic information: provide a name for the evaluation and select a flow to evaluate (generate_title)
+- Configure test data: use an existing data file (articles.jsonl) or add a new one; map the input to the flow to a field in the data set (e.g., content)
+- Select metrics: select AI quality metrics that are either AI Assisted (LLM) or NLP-based; depending on the selection you will need to map your dataset fields to the evaluation input; for example **groundedness** requires context, response and query to determine the groundedness of the response.
+  - metrics like F1, BLEU, ROUGE, etc. require a ground_truth field in the dataset; in the case of articles the ground_truth field would be the title and the response field would be the generated title
+- Review and finish: review the configuration and start the evaluation
+
+**Important:** for headline evaluation you might select the article content as context, the title generation prompt as query and the generated title as response. However, some of the metrics are not built for this type evaluation. For example, Coherence complains about a missing query. Fluency might complain about the lack of depth in the answer because it is just a title. Groundedness and relevance should work fine.
+
+The evaluation will start and that will be visible in the Output:
+
+![alt text](images/eval_result.png)
+
+Note that the automated evaluation can take a while.

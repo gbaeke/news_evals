@@ -1,0 +1,11 @@
+{
+  "nodes": {
+    "generate_title": {
+      "variant_0": {
+        "inputs": {
+          "content": []
+        }
+      }
+    }
+  }
+}

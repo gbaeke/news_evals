@@ -1,0 +1,16 @@
+{
+  "package": {},
+  "code": {
+    "generate_title.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "content": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "generate_title.jinja2"
+    }
+  }
+}
