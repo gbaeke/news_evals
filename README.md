@@ -188,3 +188,19 @@ The evaluation will start and that will be visible in the Output:
 ![alt text](images/eval_result.png)
 
 Note that the automated evaluation can take a while.
+
+## Using the evaluation SDK
+
+The folder `eval_sdk` contains a very simple example to run an AI-assisted groundedness evaluator on sample data. For this sample to work, create a `.env`file in the folder like below:
+
+```bash
+AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint      # URL of your Azure OpenAI service
+AZURE_OPENAI_API_KEY=your_api_key                     # API key for authentication
+AZURE_OPENAI_DEPLOYMENT=your_model_deployment_name    # Name of your deployed model
+AZURE_OPENAI_API_VERSION=your_api_version            # API version for Azure OpenAI e.g., 2024-10-21
+AZURE_SUBSCRIPTION_ID=your_subscription_id           # Azure subscription identifier
+AZURE_RESOURCE_GROUP=your_resource_group_name       # Azure resource group name
+AZURE_PROJECT_NAME=your_project_name                # Name of your AI foundry project
+```
+
+Note that the three last parameters are only needed when you run cloud-based evaluators like the Groundedness Pro evaluator. I removed the Groundedness Pro evaluator from the code because it was not supported in the region of my AI Foundry project.
