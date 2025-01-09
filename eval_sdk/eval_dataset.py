@@ -46,7 +46,7 @@ def main():
                 } 
             }
         },
-        # Optionally provide an output path to dump a json of metric summary, row level data and metric and Azure AI project URL
+        # Optionally provide an output path to dump a json of metric summary
         output_path="./myevalresults.json"
     )
     return result
