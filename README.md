@@ -204,3 +204,24 @@ AZURE_PROJECT_NAME=your_project_name                # Name of your AI foundry pr
 ```
 
 Note that the three last parameters are only needed when you run cloud-based evaluators like the Groundedness Pro evaluator. I removed the Groundedness Pro evaluator from the code because it was not supported in the region of my AI Foundry project.
+
+The code in `eval.py` also uses a prompt-based custom evaluator:
+
+```python
+from title_score import HeadlineEvaluator
+
+headline_eval = HeadlineEvaluator(model_config)
+
+headline_data = dict(
+    article="A leading tech company has announced the launch of its latest AI assistant, promising to revolutionize daily life and work efficiency. Equipped with advanced natural language processing and real-time adaptability, the assistant is designed to assist with tasks ranging from scheduling to creative writing. Analysts believe this innovation could redefine how businesses and individuals interact with technology, sparking debates over privacy and ethical AI usage.",
+    headline="Some company unveils a boring widget that nobody will use",
+)
+
+headline_score = headline_eval(**headline_data)
+
+print(headline_score)
+```
+
+The `HeadlineEvaluator` class is defined in `title_score.py`. It returns a score between 1 and 5 plus an explanation. The score and explanation are returned as JSON. The custom evaluator uses a Prompty file to define the prompt and its inputs and outputs.
+
+**Note:** you can register a custom evaluator in an Azure AI Foundry project so you can run evaluations with the custom evaluator in the cloud.

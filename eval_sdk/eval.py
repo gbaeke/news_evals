@@ -37,3 +37,18 @@ groundedness_score = groundedness_eval(
     **query_response
 )
 print(groundedness_score)
+
+
+# try the headline evaluator
+from title_score import HeadlineEvaluator
+
+headline_eval = HeadlineEvaluator(model_config)
+
+headline_data = dict(
+    article="A leading tech company has announced the launch of its latest AI assistant, promising to revolutionize daily life and work efficiency. Equipped with advanced natural language processing and real-time adaptability, the assistant is designed to assist with tasks ranging from scheduling to creative writing. Analysts believe this innovation could redefine how businesses and individuals interact with technology, sparking debates over privacy and ethical AI usage.",
+    headline="Some company unveils a boring widget that nobody will use",
+)
+
+headline_score = headline_eval(**headline_data)
+
+print(headline_score)
